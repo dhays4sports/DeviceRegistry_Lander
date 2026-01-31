@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Device Registry — a neutral ENS namespace for device identity." />
+  <title>Device Registry</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --fg:#0b0b0b;
+      --muted:#5a5a5a;
+      --border:#e9e9e9;
+      --soft:#f7f7f7;
+      --link:#0b0b0b;
+      --max: 860px;
+    }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    a{ color:var(--link); text-underline-offset: 3px; }
+    a:hover{ text-decoration-thickness: 2px; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 40px 20px 56px; }
+    header{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:16px;
+      padding-bottom:18px;
+      border-bottom:1px solid var(--border);
+      margin-bottom:32px;
+    }
+    .brand{
+      font-weight:650;
+      letter-spacing:-0.2px;
+      font-size:16px;
+      text-decoration:none;
+    }
+    nav{ display:flex; gap:14px; flex-wrap:wrap; }
+    nav a{
+      color:var(--muted);
+      font-size:14px;
+      text-decoration:none;
+      border-bottom:1px solid transparent;
+      padding-bottom:2px;
+    }
+    nav a:hover{
+      color:var(--fg);
+      border-bottom-color: var(--fg);
+    }
+    h1{
+      font-size:42px;
+      letter-spacing:-0.9px;
+      margin: 0 0 8px;
+      font-weight:720;
+    }
+    .subtitle{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:16px;
+      max-width: 70ch;
+    }
+    .lead{
+      font-size:18px;
+      margin: 0 0 26px;
+      max-width: 75ch;
+    }
+    section{ margin-top:28px; }
+    .kicker{
+      margin: 0 0 8px;
+      color:var(--muted);
+      font-size:13px;
+      letter-spacing:0.2px;
+      text-transform:uppercase;
+    }
+    .card{
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:18px 18px;
+      background: #fff;
+    }
+    pre{
+      margin:0;
+      padding:14px 14px;
+      background: var(--soft);
+      border:1px solid var(--border);
+      border-radius:10px;
+      overflow:auto;
+      font-size:14px;
+      line-height:1.5;
+    }
+    .status{
+      display:inline-flex;
+      gap:10px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .pill{
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:#fff;
+    }
+    ul{ margin: 10px 0 0 20px; padding:0; }
+    li{ margin: 6px 0; }
+    .note{ color:var(--muted); font-size:14px; margin-top:10px; }
+    footer{
+      margin-top:44px;
+      padding-top:18px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      font-size:14px;
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .links{ display:flex; gap:14px; flex-wrap:wrap; }
+    .links a{ color:var(--muted); }
+    .links a:hover{ color:var(--fg); }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/">Device Registry</a>
+      <nav>
+        <!-- Replace # with your real URLs -->
+        <a href="#spec">Spec</a>
+        <a href="#ens">ENS</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Device Registry</h1>
+      <p class="subtitle">A neutral ENS namespace for device identity.</p>
+
+      <p class="lead">
+        Device Registry provides a simple, human-readable way to name and reference devices on Ethereum —
+        phones, laptops, servers, robots, and other execution environments — without binding them to a specific
+        wallet, vendor, or application.
+      </p>
+
+      <section class="card" id="about">
+        <p style="margin:0 0 10px;">
+          Built on ENS, the registry makes device identity explicit, composable, and revocable.
+          It defines no behavior and enforces no policy.
+        </p>
+        <p style="margin:0;">
+          The registry exists solely to provide a shared naming layer for devices that execute actions on behalf
+          of humans, organizations, or software systems.
+        </p>
+      </section>
+
+      <section>
+        <p class="kicker">Examples</p>
+        <pre><code>phone.device.eth
+laptop.device.eth
+robot.device.eth
+server.device.eth</code></pre>
+        <p class="note">Examples are illustrative only. Interpretation is left to consuming systems.</p>
+      </section>
+
+      <section>
+        <p class="kicker">Status</p>
+        <div class="status">
+          <span class="pill">Experimental</span>
+          <span class="pill">Opt-in</span>
+          <span class="pill">Naming-only</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <p class="kicker" style="margin-top:0;">Non-Goals</p>
+        <p style="margin:0;">
+          Device Registry does not define standards, replace vendor device management, enforce permissions or
+          security models, or claim authority over implementations.
+        </p>
+        <p style="margin:12px 0 0; font-weight:650;">
+          The registry exists to name devices — nothing more.
+        </p>
+      </section>
+
+      <section id="spec">
+        <p class="kicker">Links</p>
+        <div class="card">
+          <ul style="margin-top:0;">
+            <!-- Replace # with your real URLs -->
+            <li><strong id="ens">ENS:</strong> <a href="#" aria-label="device.eth on ENS">device.eth</a></li>
+            <li><strong>Specification:</strong> <a href="#" aria-label="Device Registry spec on GitHub">GitHub repository</a></li>
+            <li><strong>Documentation:</strong> <a href="/" aria-label="Device Registry documentation">deviceregistry.org</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© <span id="y"></span> Device Registry</span>
+      <div class="links">
+        <!-- Replace # with your real URLs -->
+        <a href="#">GitHub</a>
+        <a href="#">ENS</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
